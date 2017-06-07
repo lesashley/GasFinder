@@ -14,10 +14,11 @@
 
   icon.on('click',(e) => {
    e.preventDefault();
-
-    state.selectedStation = station;
-    update();
+   state.selectedStation = station;
+   update();
   });
+
+  
   return card;
 }
 

@@ -6,7 +6,6 @@ const render = (root) => {
   wrapper.append(Header(_ => render(root)));
 
   if (state.selectedStation == null) {
-    // wrapper.append(Search(_ => render(root)));
     wrapper.append(Search(_ => render(root)));
   } else{
     wrapper.append(MapStation(_ => render(root)));
