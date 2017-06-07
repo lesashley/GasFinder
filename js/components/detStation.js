@@ -29,21 +29,28 @@ $(() =>{
     lat: state.selectedStation.lat,
     lng: state.selectedStation.long
   });
-  map.addMarker({
-    lat: state.selectedStation.lat,
-    lng: state.selectedStation.long,
-    title: 'Lima'
+
+  GMaps.geolocate({
+    success: function(position) {
+      map.setCenter(position.coords.latitude, position.coords.longitude);
+      map.setZoom(14);
+      map.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+        title: 'Lima'
+      });
+      map.drawRoute({
+        origin: [position.coords.latitude, position.coords.longitude],
+        destination: [state.selectedStation.lat, state.selectedStation.long],
+        travelMode: 'DRIVING',
+      });
+      map.addMarker({
+        lat: state.selectedStation.lat,
+        lng: state.selectedStation.long,
+        title: 'Lima'
+      });
+    }
   });
-  // GMaps.geolocate({
-  //   success: function(position) {
-  //     map.setCenter(position.coords.latitude, position.coords.longitude);
-  //     map.addMarker({
-  //       lat: position.coords.latitude,
-  //       lng: state.selectedStation.long,
-  //       title: 'Lima'
-  //     });
-  //   }
-  // });
 })
    state.selectedStation.products.forEach((e) => {
      const producto = $("<span>" + e + "</span>");
