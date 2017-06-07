@@ -1,24 +1,23 @@
 'use strict';
-
  const StationItem = (station, update) => {
    const card = $("<div class='card'></div>");
-   const icon = $('<a class="right"><i class="fa fa-map" aria-hidden="true"></i></a>');
+   const icon = $('<a><i class="fa fa-map" aria-hidden="true"></i></a>');
    const name = $(`<h3>${station.name}</h3>`);
    const address = $(`<p>${station.address}</p>`);
    const district = $(`<p>${station.district}</p>`);
+   const line = $("<hr></hr>");
 
    card.append(icon);
    card.append(name);
    card.append(address);
    card.append(district);
+   card.append(line);
 
   icon.on('click',(e) => {
    e.preventDefault();
    state.selectedStation = station;
    update();
   });
-
-  
   return card;
 }
 
@@ -46,7 +45,6 @@ const Search = (update) => {
   });
   return content;
 }
-
 const pushStation = (divStation,stationSelect, update) => {
     divStation.empty();
     stationSelect.forEach(e => {

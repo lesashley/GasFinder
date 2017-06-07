@@ -1,10 +1,10 @@
 'use strict';
 const MapStation = (update) => {
   const contenStation = $('<section class="container-station"></section>');
-  const iconBefore = $("<i class='fa fa-chevron-left icon-left' aria-hidden='true'></i>");
+  const iconBefore = $("<i class='fa fa-chevron-left icon-top' aria-hidden='true'></i>");
   const contentMap =$("<div class='container-map'></div>");
   const map = $("<div id='map'></div>");
-  const stationName = $('<p><strong>' + state.selectedStation.name + '</strong></p>');
+  const stationName = $('<h1><strong>' + state.selectedStation.name + '</strong></h1>');
   const hr = $('<hr>');
   const stationAddress = $('<span>' + state.selectedStation.address + '</span>');
   const stationProduct = $('<div class="fuel"></div>');
@@ -22,7 +22,7 @@ const MapStation = (update) => {
    contenStation.append(hr);
    contenStation.append(stationAddress);
    contenStation.append(stationProduct);
-// let map;
+
 $(() =>{
   var map = new GMaps({
     div: '#map',
